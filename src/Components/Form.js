@@ -19,7 +19,7 @@ class Form extends Component {
         super(props);
         this.state = {
             success: false,
-            avatar_url: this.state.user.avatar_url,
+            avatar_url: "https://cdn.discordapp.com/avatars/" + this.state.user.id + "/" + this.state.user.avatar + ".png"",
             user: {id: null, avatar: null, username: null, discriminator: null, email: null},
             notBanned: false,
             blocked: false,
@@ -131,13 +131,13 @@ class Form extends Component {
         if (this.state.notBanned) {
             return <Redirect to={{
                 pathname: '/404',
-                state: {errorCode: '403', errorMessage: "It looks like you're not banned... yet..."}
+                state: {errorCode: '403', errorMessage: "This user is not detected in our ban list"}
             }}/>;
         }
         if (this.state.blocked) {
             return <Redirect to={{
                 pathname: '/404',
-                state: {errorCode: '403', errorMessage: "You have been blocked from submitting further ban appeals"}
+                state: {errorCode: '403', errorMessage: "You have unfortunately have been blacklisted, which means you are unable to send further ban appeals. If you think this is incorrect please join Freshblox Appeals & HR Department - https://discord.gg/cyuJeHcnkp"}
             }}/>;
         }
 
